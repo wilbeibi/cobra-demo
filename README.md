@@ -1,3 +1,5 @@
 # A cobra demo
 
-Reference: https://github.com/dharmeshkakadia/cobra-example
+## References:
++ https://github.com/dharmeshkakadia/cobra-example
++ https://github.com/sbueringer/kubectx/blob/master/cmd/completion.go

@@ -13,11 +13,13 @@ var cfgFile string
 
 // rootCmd represents the base command when called without subcommands
 var rootCmd = &cobra.Command{
-	Use:   "cobra-demo",
-	Short: "cobra-demo is an example of cobra usage",
-	Long:  "cobra-demo shows how to create a CLI application with cobra",
-	// If want to run bare cobra-demo:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Use:       "cobra-demo",
+	Short:     "cobra-demo is an example of cobra usage",
+	Long:      "cobra-demo shows how to create a CLI application with cobra",
+	ValidArgs: []string{"version"},
+	Run: func(cmd *cobra.Command, args []string) {
+		cmd.Help()
+	},
 }
 
 func init() {
@@ -30,7 +32,7 @@ func initConfig() {
 	if cfgFile != "" {
 		viper.SetConfigFile(cfgFile)
 	} else {
-		home, err := homedir.Dir()
+		home, err := homedir.Dir() // OS compatible version of Getenv("HOME")
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
